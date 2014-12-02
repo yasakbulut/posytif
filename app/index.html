@@ -21,23 +21,38 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container-fluid">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
+        <div class="pull-right">
+          Search
+        </div>
         <h3 class="text-muted">posytif</h3>
       </div>
-
-      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
-
+      <div class="row">
+        <div class="col-md-3">
+          <ul>
+            <li>Playlists</li>
+            <li>Artists</li>
+            <li>Queue</li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          lol
+          <div ng-view></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div ng-include="'views/album_art.html'" ng-controller="AlbumArtCtrl"></div>
+        </div>
+        <div class="col-md-7">
+          <div ng-include="'views/controls.html'" ng-controller="ControlsCtrl"></div>
+        </div>
+      </div>
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p>Made with <span class="glyphicon glyphicon-heart"></span>, by yasa</p>
       </div>
     </div>
-
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -45,7 +60,7 @@
        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
+       
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
@@ -69,6 +84,11 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/albumArt.js"></script>
+        <script src="scripts/controllers/controls.js"></script>
+        <script src="scripts/services/player.js"></script>
+        <script src="scripts/services/queue.js"></script>
+        <script src="scripts/constants/playerStates.js"></script>
         <!-- endbuild -->
 </body>
 </html>

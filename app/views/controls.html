@@ -1,0 +1,9 @@
+<button ng-click="play()">Play</button>
+<button ng-click="pause()">Pause</button>
+<button ng-click="previous()">Previous</button>
+<button ng-click="next()">Next</button>
+<button ng-click="stop()">Stop</button>
+
+<input type="range" min="0" ng-model="position.seconds" max="{{ current.duration }}" step="1">
+
+{{position.seconds * 1000 | date:'mm:ss'}} / {{(current.duration || 0) * 1000 | date:'mm:ss'}}
