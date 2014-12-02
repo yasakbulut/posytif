@@ -10,5 +10,5 @@
  */
 angular
   .module('posytifApp', [
-    'ngTouch'
+    'ngTouch', 'firebase'
   ]);
