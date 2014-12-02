@@ -1,7 +1,7 @@
 /**
  * Created by yasa on 02/12/14.
  */
-"use strict";
+'use strict';
 
 /**
  * @ngdoc constant
@@ -12,7 +12,7 @@
  */
 angular.module('posytifApp')
   .constant('playerStates', {
-    PLAYING: "playing",
-    PAUSED: "paused",
-    STOPPED: "stopped"
+    PLAYING: 'playing',
+    PAUSED: 'paused',
+    STOPPED: 'stopped'
   });

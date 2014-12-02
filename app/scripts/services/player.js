@@ -1,7 +1,7 @@
 /**
  * Created by yasa on 01/12/14.
  */
-"use strict";
+'use strict';
 
 /**
  * @ngdoc service
@@ -40,7 +40,7 @@ angular.module('posytifApp')
     var pause = function(){
       player.state = playerStates.PAUSED;
       $interval.cancel(player.statePromise);
-      console.log("pause called");
+      console.log('pause called');
     };
 
     var stop = function(){
@@ -49,7 +49,7 @@ angular.module('posytifApp')
       player.position.seconds = 0;
       $interval.cancel(player.statePromise);
       //Queue.empty();
-      console.log("stop called");
+      console.log('stop called');
     };
 
     var next = function(){
@@ -60,7 +60,7 @@ angular.module('posytifApp')
         angular.copy(nextSong, player.currentTrack);
         player.position.seconds = 0;
       }
-      console.log("next called");
+      console.log('next called');
     };
 
     var previous = function(){
@@ -71,7 +71,7 @@ angular.module('posytifApp')
         angular.copy(previousSong, player.currentTrack);
         player.position.seconds = 0;
       }
-      console.log("previous called");
+      console.log('previous called');
     };
 
     var tick = function(){
@@ -96,49 +96,49 @@ angular.module('posytifApp')
 
     var list = [
       {
-        "album": {
-          "title": "veniam ipsum",
-          "art": "http://lorempixel.com/256/256?q=4"
+        'album': {
+          'title': 'veniam ipsum',
+          'art': 'http://lorempixel.com/256/256?q=4'
         },
-        "artist": "Rojas Mckinney",
-        "title": "reprehenderit enim adipisicing",
-        "duration": 5
+        'artist': 'Rojas Mckinney',
+        'title': 'reprehenderit enim adipisicing',
+        'duration': 5
       },
       {
-        "album": {
-          "title": "dolor esse",
-          "art": "http://lorempixel.com/256/256?q=81"
+        'album': {
+          'title': 'dolor esse',
+          'art': 'http://lorempixel.com/256/256?q=81'
         },
-        "artist": "Jeannette Wilkerson",
-        "title": "velit labore labore",
-        "duration": 3
+        'artist': 'Jeannette Wilkerson',
+        'title': 'velit labore labore',
+        'duration': 3
       },
       {
-        "album": {
-          "title": "do ipsum",
-          "art": "http://lorempixel.com/256/256?q=39"
+        'album': {
+          'title': 'do ipsum',
+          'art': 'http://lorempixel.com/256/256?q=39'
         },
-        "artist": "Ethel Hopkins",
-        "title": "duis Lorem reprehenderit",
-        "duration": 2
+        'artist': 'Ethel Hopkins',
+        'title': 'duis Lorem reprehenderit',
+        'duration': 2
       },
       {
-        "album": {
-          "title": "aute excepteur",
-          "art": "http://lorempixel.com/256/256?q=54"
+        'album': {
+          'title': 'aute excepteur',
+          'art': 'http://lorempixel.com/256/256?q=54'
         },
-        "artist": "Valerie Griffin",
-        "title": "laborum mollit voluptate",
-        "duration": 221
+        'artist': 'Valerie Griffin',
+        'title': 'laborum mollit voluptate',
+        'duration': 221
       },
       {
-        "album": {
-          "title": "Lorem fugiat",
-          "art": "http://lorempixel.com/256/256?q=96"
+        'album': {
+          'title': 'Lorem fugiat',
+          'art': 'http://lorempixel.com/256/256?q=96'
         },
-        "artist": "Buckner Chaney",
-        "title": "proident incididunt sunt",
-        "duration": 225
+        'artist': 'Buckner Chaney',
+        'title': 'proident incididunt sunt',
+        'duration': 225
       }
     ];
     Queue.setQueue(list);

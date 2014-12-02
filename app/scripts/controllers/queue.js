@@ -1,6 +1,8 @@
 /**
  * Created by yasa on 02/12/14.
  */
+'use strict';
+
 /**
  * @ngdoc function
  * @name posytifApp.controller:AlbumArtCtrl

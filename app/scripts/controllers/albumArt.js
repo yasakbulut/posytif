@@ -12,6 +12,6 @@
  */
 angular.module('posytifApp')
   .controller('AlbumArtCtrl', function ($scope, Player) {
-    $scope.defaultArt = "http://placekitten.com/g/256/256";
+    $scope.defaultArt = 'http://placekitten.com/g/256/256';
     $scope.current = Player.getCurrent();
   });
