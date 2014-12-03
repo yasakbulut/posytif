@@ -34,7 +34,7 @@ angular.module('posytifApp')
       loginPromise.then(function(user){
         $scope.user = user;
       }).catch(function(error){
-        if(error && error.code === "USER_CANCELLED"){
+        if(error && error.code === 'USER_CANCELLED'){
           return;
         }
         alert('Authentication Failed.');

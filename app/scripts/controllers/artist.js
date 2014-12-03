@@ -11,28 +11,11 @@
  * Track player for posytifApp
  */
 angular.module('posytifApp')
-  .controller('ArtistCtrl', function ($scope, SpotifyService, $routeParams, PlaylistService, AuthService) {
+  .controller('ArtistCtrl', function ($scope, SpotifyService, $routeParams) {
 
     var artistId = $routeParams.artistId;
 
     var country = 'TR'; //TODO: detect this
-
-    $scope.loginStatus = AuthService.loginStatus;
-    if($scope.loginStatus.loggedIn){
-      $scope.playlists = PlaylistService.getPlaylistsOfUser();
-    }else{
-      var unbindWatcher = $scope.$watch('loginStatus.loggedIn', function(newValue, oldValue){
-        if(newValue !== oldValue
-          && newValue === true){
-          $scope.playlists = PlaylistService.getPlaylistsOfUser();
-          unbindWatcher();
-        }
-      });
-    }
-
-    $scope.addTrackToPlaylist = function(track){
-      PlaylistService.addTrackToPlaylist(track, track.destinedPlaylist.$id);
-    };
 
     SpotifyService.getArtist(artistId).then(function(artist){
       $scope.artist = artist;
@@ -45,6 +28,7 @@ angular.module('posytifApp')
     SpotifyService.getAlbumsOfArtist(artistId,country).then(function(albums){
       $scope.albums = albums;
     });
+
     $scope.getTracksOfAlbum = function(album){
       SpotifyService.getTracksOfAlbum(album.id).then(function(tracks){
         $scope.tracksOfSelectedAlbum = tracks;

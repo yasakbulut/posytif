@@ -11,21 +11,13 @@
  * Controller of the posytifApp
  */
 angular.module('posytifApp')
-  .controller('NavigationCtrl', function ($scope, PlaylistService, AuthService) {
-
-    $scope.loginStatus = AuthService.loginStatus;
-    var unbindWatcher = $scope.$watch('loginStatus.loggedIn', function(newValue, oldValue){
-      if(newValue !== oldValue
-          && newValue === true){
-        $scope.playlists = PlaylistService.getPlaylistsOfUser();
-        unbindWatcher();
-      }
-    });
+  .controller('NavigationCtrl', function ($scope) {
 
     $scope.createPlaylist = function(name){
       $scope.playlists.$add({
         name: name,
         tracks: []
       });
-    }
+    };
+
   });

@@ -11,7 +11,7 @@
  * Controller of the album art module of the posytifApp
  */
 angular.module('posytifApp')
-  .controller('QueueCtrl', function($scope, $rootScope, Queue){
+  .controller('QueueCtrl', function($scope, $rootScope, QueueService){
     $scope.getUpcoming = function(){
       $scope.upcoming = Queue.getUpcoming();
     };

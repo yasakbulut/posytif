@@ -11,14 +11,16 @@
  * Track player for posytifApp
  */
 angular.module('posytifApp')
-  .factory('Player', function (playerStates, Queue, $interval) {
+  .factory('PlayerService', function (playerStates, QueueService, $interval) {
 
     var player = {
       currentTrack: {},
       position: {
         seconds: 0
       },
-      state: playerStates.STOPPED,
+      state: {
+        playState:playerStates.STOPPED
+      },
       statePromise: null
     };
 
@@ -28,50 +30,56 @@ angular.module('posytifApp')
 
     var play = function(){
       if(!player.currentTrack){
-        angular.copy(Queue.getNext(), player.currentTrack);
+        setCurrentTrack(QueueService.getNext());
       }
-      if(player.currentTrack === null){
+      if(player.currentTrack === null || !player.currentTrack.duration){
         return;
       }
       player.statePromise = $interval(tick, 1000);
-      player.state = playerStates.PLAYING;
+      player.state.playState = playerStates.PLAYING;
     };
 
     var pause = function(){
-      player.state = playerStates.PAUSED;
+      player.state.playState = playerStates.PAUSED;
       $interval.cancel(player.statePromise);
       console.log('pause called');
     };
 
     var stop = function(){
-      player.state = playerStates.STOPPED;
+      player.state.playState = playerStates.STOPPED;
       angular.copy({}, player.currentTrack);
       player.position.seconds = 0;
       $interval.cancel(player.statePromise);
-      //Queue.empty();
+      //QueueService.empty();
       console.log('stop called');
     };
 
     var next = function(){
-      var nextSong = Queue.getNext();
+      var nextSong = QueueService.getNext();
       if(nextSong === null){
         stop();
       }else{
-        angular.copy(nextSong, player.currentTrack);
+        setCurrentTrack(nextSong);
         player.position.seconds = 0;
       }
       console.log('next called');
     };
 
     var previous = function(){
-      var previousSong = Queue.getPrevious();
+      var previousSong = QueueService.getPrevious();
       if(previousSong === null){
         stop();
       }else{
-        angular.copy(previousSong, player.currentTrack);
+        setCurrentTrack(previousSong);
         player.position.seconds = 0;
       }
       console.log('previous called');
+    };
+
+    var setCurrentTrack = function(track){
+      player.currentTrack.duration = track.duration_ms / 1000;
+      player.currentTrack.name = track.name;
+      player.currentTrack.artist = track.artists.map(function(artist){return artist.name}).join(", ");
     };
 
     var tick = function(){
@@ -88,6 +96,10 @@ angular.module('posytifApp')
       return player.position;
     };
 
+    var getState = function(){
+      return player.state;
+    };
+
     return {
       getCurrent: getCurrent,
       play: play,
@@ -95,7 +107,8 @@ angular.module('posytifApp')
       stop: stop,
       next: next,
       previous: previous,
-      getPosition: getPosition
+      getPosition: getPosition,
+      getState: getState
     };
 
   });

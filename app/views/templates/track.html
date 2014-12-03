@@ -9,7 +9,7 @@
     </select>
     <button ng-click="addTrackToPlaylist(track)">add to playlist</button>
     <button ng-if="playlist" ng-click="removeTrackFromPlaylist(firebaseId, playlist)">remove from this playlist</button>
-    <button>play now</button>
-    <button>queue</button>
+    <button ng-click="playTrack(track)">play now</button>
+    <button ng-click="queueTrack(track)">queue</button>
   </div>
 </div>

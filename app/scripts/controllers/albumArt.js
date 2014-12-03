@@ -11,7 +11,7 @@
  * Controller of the album art module of the posytifApp
  */
 angular.module('posytifApp')
-  .controller('AlbumArtCtrl', function ($scope, Player) {
+  .controller('AlbumArtCtrl', function ($scope, PlayerService) {
     $scope.defaultArt = 'http://placekitten.com/g/256/256';
-    $scope.current = Player.getCurrent();
+    $scope.current = PlayerService.getCurrent();
   });

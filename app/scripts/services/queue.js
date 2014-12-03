@@ -11,14 +11,14 @@
  * Track player for posytifApp
  */
 angular.module('posytifApp')
-  .factory('Queue', function () {
+  .factory('QueueService', function () {
 
     var queue = [];
     var priorityQueue = [];
     var index = -1;
 
-    var enqueue = function(song){
-      priorityQueue.push(song);
+    var enqueue = function(track){
+      priorityQueue.push(track);
     };
 
     var setQueue = function(list){

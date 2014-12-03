@@ -10,8 +10,8 @@ describe('Service: Queue', function () {
 
   var q;
   // Initialize the controller and a mock scope
-  beforeEach(inject(function (Queue) {
-    q = Queue;
+  beforeEach(inject(function (QueueService) {
+    q = QueueService;
   }));
 
   it('should correctly set a playlist when the queue is empty', function () {

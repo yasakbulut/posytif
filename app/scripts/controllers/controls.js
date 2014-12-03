@@ -11,22 +11,24 @@
  * Controller of the album art module of the posytifApp
  */
 angular.module('posytifApp')
-  .controller('ControlsCtrl', function ($scope, Player) {
-    $scope.position = Player.getPosition();
-    $scope.current = Player.getCurrent();
+  .controller('ControlsCtrl', function ($scope, PlayerService) {
+    $scope.position = PlayerService.getPosition();
+    $scope.current = PlayerService.getCurrent();
+
     $scope.play = function () {
-      Player.play();
+      PlayerService.play();
     };
+
     $scope.pause = function () {
-      Player.pause();
+      PlayerService.pause();
     };
     $scope.previous = function () {
-      Player.previous();
+      PlayerService.previous();
     };
     $scope.next = function () {
-      Player.next();
+      PlayerService.next();
     };
     $scope.stop = function () {
-      Player.stop();
+      PlayerService.stop();
     };
   });
