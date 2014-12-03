@@ -30,6 +30,10 @@ angular.module('posytifApp')
       $scope.user = null;
     };
 
+    AuthService.checkPersistentLoginState().then(function(user){
+        $scope.user = user;
+    });
+
     function handleLoginPromise(loginPromise){
       loginPromise.then(function(user){
         $scope.user = user;

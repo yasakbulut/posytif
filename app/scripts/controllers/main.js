@@ -11,16 +11,10 @@ angular.module('posytifApp')
   .controller('MainCtrl', function ($scope, SpotifyService, $routeParams, PlaylistService, AuthService, PlayerService, QueueService, playerStates) {
 
     $scope.loginStatus = AuthService.loginStatus;
-    if($scope.loginStatus.loggedIn){
+
+    AuthService.onLogin(function(){
       $scope.playlists = PlaylistService.getPlaylistsOfUser();
-    }else{
-      var unbindWatcher = $scope.$watch('loginStatus.loggedIn', function(newValue, oldValue){
-        if(newValue !== oldValue && newValue === true){
-          $scope.playlists = PlaylistService.getPlaylistsOfUser();
-          unbindWatcher();
-        }
-      });
-    }
+    });
 
     $scope.addTrackToPlaylist = function(track){
       PlaylistService.addTrackToPlaylist(track, track.destinedPlaylist.$id);

@@ -84,12 +84,35 @@ angular.module('posytifApp')
       return rootRef.getAuth();
     };
 
+    var checkPersistentLoginState = function(){
+      var deferred = $q.defer();
+
+      rootRef.onAuth(function (user){
+        if (user) {
+          deferred.resolve(user);
+          loginStatus.loggedIn = true;
+          loginStatus.provider = user.provider;
+          loginStatus.uid = user.uid;
+        }else{
+          deferred.reject('NOT_LOGGED_IN');
+        }
+      });
+
+      return deferred.promise;
+    };
+
+    var onLogin = function(callback){
+      rootRef.onAuth(callback);
+    };
+
     return {
       thirdPartyLogin: thirdPartyLogin,
       passwordLogin: passwordLogin,
       createUserAndLogin: createUserAndLogin,
       logout: logout,
       getUser: getUser,
+      checkPersistentLoginState: checkPersistentLoginState,
+      onLogin: onLogin,
       loginStatus: loginStatus
     };
 
