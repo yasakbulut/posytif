@@ -4,10 +4,11 @@
   <div class="album">{{track.album.name}}</div>
   <div class="duration">{{track.duration_ms | date:'mm:ss'}}</div>
   <div class="actions">
-    <select ng-model="track.destinedPlaylist" ng-if="playlists"  ng-options="playlist.name for playlist in playlists">
+    <select ng-model="track.destinedPlaylist" ng-if="playlists"  ng-options="pl.name for pl in playlists">
       <option value="">Select..</option>
     </select>
     <button ng-click="addTrackToPlaylist(track)">add to playlist</button>
+    <button ng-if="playlist" ng-click="removeTrackFromPlaylist(firebaseId, playlist)">remove from this playlist</button>
     <button>play now</button>
     <button>queue</button>
   </div>

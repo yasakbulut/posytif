@@ -19,19 +19,19 @@ angular.module('posytifApp')
 
     $scope.loginStatus = AuthService.loginStatus;
     if($scope.loginStatus.loggedIn){
-      $scope.playlists = PlaylistService(AuthService.getUser().uid);
+      $scope.playlists = PlaylistService.getPlaylistsOfUser();
     }else{
       var unbindWatcher = $scope.$watch('loginStatus.loggedIn', function(newValue, oldValue){
         if(newValue !== oldValue
           && newValue === true){
-          $scope.playlists = PlaylistService(AuthService.getUser().uid);
+          $scope.playlists = PlaylistService.getPlaylistsOfUser();
           unbindWatcher();
         }
       });
     }
 
     $scope.addTrackToPlaylist = function(track){
-      $scope.playlists.$getRecord(track.destinedPlaylist.$id).tracks.$asArray().$add(track);
+      PlaylistService.addTrackToPlaylist(track, track.destinedPlaylist.$id);
     };
 
     SpotifyService.getArtist(artistId).then(function(artist){

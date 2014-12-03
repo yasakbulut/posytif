@@ -11,9 +11,12 @@
  * Controller of the posytifApp
  */
 angular.module('posytifApp')
-  .controller('PlaylistCtrl', function ($scope, $routeParams, PlaylistService, AuthService) {
-    var playlists = PlaylistService(AuthService.getUser().uid);
-    playlists.$loaded().then(function(){
-       $scope.playlist = playlists.$getRecord($routeParams.playlistId);
-    });
+  .controller('PlaylistCtrl', function ($scope, $routeParams, PlaylistService) {
+
+    $scope.playlist = PlaylistService.getPlaylistById($routeParams.playlistId);
+
+    $scope.removeTrackFromPlaylist = function(track, playlist){
+      PlaylistService.removeTrackFromPlaylist(track, playlist.$id);
+    }
+
   });

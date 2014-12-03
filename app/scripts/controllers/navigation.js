@@ -12,11 +12,12 @@
  */
 angular.module('posytifApp')
   .controller('NavigationCtrl', function ($scope, PlaylistService, AuthService) {
+
     $scope.loginStatus = AuthService.loginStatus;
     var unbindWatcher = $scope.$watch('loginStatus.loggedIn', function(newValue, oldValue){
       if(newValue !== oldValue
           && newValue === true){
-        $scope.playlists = PlaylistService(AuthService.getUser().uid);
+        $scope.playlists = PlaylistService.getPlaylistsOfUser();
         unbindWatcher();
       }
     });

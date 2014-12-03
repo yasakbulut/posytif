@@ -1,6 +1,6 @@
 <h2>{{playlist.name}}</h2>
 <ul>
-  <li ng-repeat="track in playlist.tracks">
+  <li ng-repeat="(firebaseId, track) in playlist.tracks">
     <pst-track>
   </li>
 </ul>
