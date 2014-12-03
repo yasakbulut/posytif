@@ -1,0 +1,18 @@
+<h2>{{artist.name}}</h2>
+<h3>Top Tracks</h3>
+<ul>
+  <li ng-repeat="track in topTracks">
+    <pst-track>
+  </li>
+</ul>
+<h3>Albums</h3>
+<ul>
+  <li ng-repeat="album in albums">
+    <div ng-click="getTracksOfAlbum(album)">{{album.name}}</div>
+  </li>
+</ul>
+<ul>
+  <li ng-repeat="track in tracksOfSelectedAlbum">
+    <pst-track>
+  </li>
+</ul>

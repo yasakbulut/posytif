@@ -1,0 +1,7 @@
+<form ng-submit="search(query)"><label for="searchInput">Search</label><input id="searchInput" type="text" ng-model="query"/></form>
+
+<ul>
+  <li ng-repeat="artist in artists.items">
+    <a ng-href="#/artist/{{artist.id}}">{{artist.name}}</a>
+  </li>
+</ul>

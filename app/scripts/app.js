@@ -10,5 +10,30 @@
  */
 angular
   .module('posytifApp', [
-    'ngTouch', 'firebase'
-  ]);
+    'firebase', 'ngRoute'
+  ]).config(function($routeProvider){
+    $routeProvider.
+      when('/playlist/:playlistId', {
+        templateUrl: 'views/playlist.html',
+        controller: 'PlaylistCtrl'
+      }).
+      when('/queue', {
+        templateUrl: 'views/queue.html',
+        controller: 'QueueCtrl'
+      }).
+      when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl'
+      }).
+      when('/search/:query', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl'
+      }).
+      when('/artist/:artistId', {
+        templateUrl: 'views/artist.html',
+        controller: 'ArtistCtrl'
+      }).
+      otherwise({
+        redirectTo: '/search'
+      });
+  });

@@ -1,0 +1,9 @@
+<h2>Playlists</h2>
+<form ng-show="loginStatus.loggedIn" ng-submit="createPlaylist(newPlaylistName)">
+  <input type="text" placeholder="Create new.." ng-model="newPlaylistName"/>
+</form>
+<ul>
+  <li ng-repeat="playlist in playlists">
+    <a ng-href="#/playlist/{{playlist.$id}}">{{ playlist.name }}</a>
+  </li>
+</ul>

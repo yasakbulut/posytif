@@ -1,0 +1,6 @@
+<div ng-if="user.facebook">
+  {{ user.facebook.displayName }}
+  <img ng-if="user.facebook.cachedUserProfile.picture.data.is_silhouette===false" ng-src="{{user.facebook.cachedUserProfile.picture.data.url}}" alt=""/>
+</div>
+<a ng-show="!user" ng-click="oAuthLogin('facebook')">Facebook Login</a>
+<a ng-show="user" ng-click="logout()">Log out</a>

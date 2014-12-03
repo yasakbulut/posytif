@@ -88,69 +88,6 @@ angular.module('posytifApp')
       return player.position;
     };
 
-
-
-
-
-
-
-    var list = [
-      {
-        'album': {
-          'title': 'veniam ipsum',
-          'art': 'http://lorempixel.com/256/256?q=4'
-        },
-        'artist': 'Rojas Mckinney',
-        'title': 'reprehenderit enim adipisicing',
-        'duration': 5
-      },
-      {
-        'album': {
-          'title': 'dolor esse',
-          'art': 'http://lorempixel.com/256/256?q=81'
-        },
-        'artist': 'Jeannette Wilkerson',
-        'title': 'velit labore labore',
-        'duration': 3
-      },
-      {
-        'album': {
-          'title': 'do ipsum',
-          'art': 'http://lorempixel.com/256/256?q=39'
-        },
-        'artist': 'Ethel Hopkins',
-        'title': 'duis Lorem reprehenderit',
-        'duration': 2
-      },
-      {
-        'album': {
-          'title': 'aute excepteur',
-          'art': 'http://lorempixel.com/256/256?q=54'
-        },
-        'artist': 'Valerie Griffin',
-        'title': 'laborum mollit voluptate',
-        'duration': 221
-      },
-      {
-        'album': {
-          'title': 'Lorem fugiat',
-          'art': 'http://lorempixel.com/256/256?q=96'
-        },
-        'artist': 'Buckner Chaney',
-        'title': 'proident incididunt sunt',
-        'duration': 225
-      }
-    ];
-    Queue.setQueue(list);
-
-
-
-
-
-
-
-
-
     return {
       getCurrent: getCurrent,
       play: play,
