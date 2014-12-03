@@ -1,7 +1,8 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
+  font-size: 1.8em;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -16,12 +17,23 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
 }
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+.header .logo{
+  height: 104px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.header .logo .logotype {
+  font-size: 2.5em;
+}
+
+.header .logo .icon {
+  font-size: 4em;
+  margin-right: 0.3em;
+  transition: transform 1s ease-in-out;
+}
+.header .icon:hover{
+  transform: rotate(1080deg);
 }
 
 /* Custom page footer */

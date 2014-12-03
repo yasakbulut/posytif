@@ -5,14 +5,17 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/user.css">
     <!-- endbuild -->
   </head>
   <body ng-app="posytifApp">
@@ -22,12 +25,18 @@
 
     <!-- Add your site or application content here -->
     <div class="container-fluid" ng-controller="MainCtrl">
-      <div class="header">
-        <div class="pull-right">
-          <div ng-include="'views/user.html'" ng-controller="UserCtrl"></div>
-          <a href="#/search">Search</a>
+      <div class="header row">
+        <div class="col-md-7">
+          <div class="logo">
+            <span class="icon fa fa-plus-circle"></span>
+            <span class="logotype">posytif</span>
+          </div>
         </div>
-        <h3 class="text-muted">posytif</h3>
+        <div class="col-md-5">
+          <div class="clearfix">
+            <div class="pull-right" ng-include="'views/user.html'" ng-controller="UserCtrl"></div>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-md-3">

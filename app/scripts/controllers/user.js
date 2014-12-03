@@ -13,6 +13,12 @@
 angular.module('posytifApp')
   .controller('UserCtrl', function ($scope, AuthService) {
 
+    $scope.loginProviders = [
+      'facebook',
+      'twitter',
+      'google'
+    ];
+
     $scope.oAuthLogin = function(provider){
       handleLoginPromise(AuthService.thirdPartyLogin(provider));
     };

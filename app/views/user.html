@@ -1,6 +1,34 @@
-<div ng-if="user.facebook">
-  {{ user.facebook.displayName }}
-  <img ng-if="user.facebook.cachedUserProfile.picture.data.is_silhouette===false" ng-src="{{user.facebook.cachedUserProfile.picture.data.url}}" alt=""/>
+<div class="userInfo" ng-if="user">
+  <div class="details" ng.if="user.provider === 'facebook'">
+    <img ng-if="user.facebook.cachedUserProfile.picture.data.is_silhouette===false"
+         ng-src="{{user.facebook.cachedUserProfile.picture.data.url}}"
+         class="avatar img-circle" alt="{{ user.facebook.displayName }}"/>
+    <span class="name">{{ user.facebook.displayName }}</span>
+  </div>
+  <div class="details" ng.if="user.provider === 'twitter'">
+    <img ng-if="user.twitter.cachedUserProfile.default_profile_image===false"
+         ng-src="{{user.twitter.cachedUserProfile.profile_image_url}}"
+         class="avatar img-circle" alt="{{ user.twitter.displayName }}"/>
+    <span class="name">{{ user.twitter.displayName }}</span>
+  </div>
+  <div class="details" ng.if="user.provider === 'google'">
+    <img ng-if="user.google.cachedUserProfile.picture"
+         ng-src="{{user.google.cachedUserProfile.picture}}"
+         class="avatar img-circle" alt="{{ user.google.displayName }}"/>
+    <span class="name">{{ user.google.displayName }}</span>
+  </div>
+  <div ng-click="logout()" class="logout-overlay">
+    Logout
+  </div>
 </div>
-<a ng-show="!user" ng-click="oAuthLogin('facebook')">Facebook Login</a>
-<a ng-show="user" ng-click="logout()">Log out</a>
+<div ng-if="!user" class="login-buttons">
+  <ul id="login-providers">
+    <li class="text">
+      LOGIN WITH
+    </li>
+    <li ng-repeat="provider in loginProviders">
+      <a href="javascript:void(0);" ng-click="oAuthLogin(provider)"><i class="fa fa-{{provider}}"></i></a>
+    </li>
+  </ul>
+</div>
+
