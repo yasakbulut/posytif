@@ -101,7 +101,7 @@ angular.module('posytifApp')
       return deferred.promise;
     };
 
-    var onLogin = function(callback){
+    var onLoginStatus = function(callback){
       rootRef.onAuth(callback);
     };
 
@@ -112,7 +112,7 @@ angular.module('posytifApp')
       logout: logout,
       getUser: getUser,
       checkPersistentLoginState: checkPersistentLoginState,
-      onLogin: onLogin,
+      onLoginStatus: onLoginStatus,
       loginStatus: loginStatus
     };
 

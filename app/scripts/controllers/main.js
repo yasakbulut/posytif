@@ -12,8 +12,12 @@ angular.module('posytifApp')
 
     $scope.loginStatus = AuthService.loginStatus;
 
-    AuthService.onLogin(function(){
-      $scope.playlists = PlaylistService.getPlaylistsOfUser();
+    AuthService.onLoginStatus(function(user){
+      if(user){
+        $scope.playlists = PlaylistService.getPlaylistsOfUser();
+      }else{
+        $scope.playlists = [];
+      }
     });
 
     $scope.addTrackToPlaylist = function(track){
