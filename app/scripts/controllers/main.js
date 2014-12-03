@@ -39,4 +39,14 @@ angular.module('posytifApp')
     $scope.queueTrack = function (track) {
       QueueService.enqueue(track);
     };
+
+    $scope.playPlaylist = function(tracks){
+      // this is needed b/c playlist tracks
+      // are not arrays, but firebase collections
+      var trackList = [];
+      for(var i in tracks){
+        trackList.push(tracks[i]);
+      }
+      QueueService.setQueue(trackList);
+    }
   });

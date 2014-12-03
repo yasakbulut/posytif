@@ -1,4 +1,5 @@
 <h2>{{playlist.name}}</h2>
+  <button ng-click="playPlaylist(playlist.tracks)">Play playlist</button>
 <ul>
   <li ng-repeat="(firebaseId, track) in playlist.tracks">
     <pst-track>

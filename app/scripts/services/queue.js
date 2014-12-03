@@ -19,10 +19,12 @@ angular.module('posytifApp')
 
     var enqueue = function(track){
       priorityQueue.push(track);
+      console.log(index, queue);
     };
 
     var setQueue = function(list){
       queue = queue.slice(0,index+1).concat(list);
+      console.log(index, queue);
     };
 
     var getNext = function(){
@@ -38,6 +40,7 @@ angular.module('posytifApp')
       }else{
         return null; //TODO:maybe trigger event
       }
+      console.log(index, queue);
     };
 
     var getPrevious = function(){
@@ -47,10 +50,13 @@ angular.module('posytifApp')
       }else{
         return null;
       }
+      console.log(index, queue);
     };
 
     var empty = function(){
       queue = [];
+      index = -1;
+      console.log(index, queue);
     };
 
     var getUpcoming = function(){
