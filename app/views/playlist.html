@@ -1,7 +1,24 @@
-<h2>{{playlist.name}}</h2>
-  <button ng-click="playPlaylist(playlist.tracks)">Play playlist</button>
-<ul>
-  <li ng-repeat="(firebaseId, track) in playlist.tracks">
-    <pst-track>
-  </li>
-</ul>
+<div class="jumbotron" ng-if="playlistNotFound">
+  <h1>Not Found</h1>
+  <p>The playlist you requested does not exist. Sorry.</p>
+</div>
+<div ng-if="!playlistNotFound">
+  <div class="jumbotron" >
+    <h1>{{playlist.name}}</h1>
+    <p> {{ playlist.tracks | trackCount }} tracks, {{ playlist.tracks | totalLength | date:'mm:ss'}}</p>
+    <p>
+
+    <button ng-click="playPlaylist(playlist.tracks)"
+                       class="btn btn-primary btn-lg">
+      Play playlist
+    </button>
+    <button ng-confirm-click="Your playlist, {{playlist.name}}, will be deleted." confirmed-click="deletePlaylist(playlist)"
+            class="btn btn-danger btn-lg">
+      Delete playlist
+    </button>
+    </p>
+  </div>
+
+
+  <pst-track ng-repeat="(firebaseId, track) in playlist.tracks">
+

@@ -11,6 +11,9 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-sweetalert/lib/sweet-alert.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -30,10 +33,10 @@
 
     <!-- Add your site or application content here -->
     <div class="container-fluid" ng-controller="MainCtrl">
-      <div class="header row">
+      <div class="header navbar shadow-z-1 row">
         <div class="col-md-7">
           <div class="logo">
-            <span class="icon fa fa-plus-circle"></span>
+            <a href="#/search"><span class="icon fa fa-plus-circle"></span></a>
             <span class="logotype">posytif</span>
           </div>
         </div>
@@ -52,10 +55,14 @@
           <div ng-view></div>
         </div>
         <div class="col-md-3">
-          <div id="now-playing" data-spy="affix" data-offset-top="104">
-            <h2>NOW PLAYING</h2>
-            <div id="album-art" ng-include="'views/album-art.html'" ng-controller="AlbumArtCtrl"></div>
-            <div id="controls" ng-include="'views/controls.html'" ng-controller="ControlsCtrl"></div>
+          <div id="now-playing" data-spy="affix" data-offset-top="110">
+            <div class="panel panel-default">
+              <div class="panel-heading">NOW PLAYING</div>
+              <div class="panel-body">
+                <div id="album-art" ng-include="'views/album-art.html'" ng-controller="AlbumArtCtrl"></div>
+                <div id="controls" ng-include="'views/controls.html'" ng-controller="ControlsCtrl"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -87,6 +94,9 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
+    <script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <script src="bower_components/bootstrap-sweetalert/lib/sweet-alert.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -107,6 +117,9 @@
         <script src="scripts/services/playlist.js"></script>
         <script src="scripts/constants/playerStates.js"></script>
         <script src="scripts/directives/track.js"></script>
+        <script src="scripts/directives/confirmClick.js"></script>
+        <script src="scripts/filters/totalLength.js"></script>
+        <script src="scripts/filters/trackCount.js"></script>
         <!-- endbuild -->
 </body>
 </html>

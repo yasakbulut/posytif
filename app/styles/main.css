@@ -32,9 +32,14 @@ a{
   font-size: 4em;
   margin-right: 0.3em;
   transition: transform 1s ease-in-out;
+  color: rgba(0, 0, 0, .87);
 }
 .header .icon:hover{
   transform: rotate(1080deg);
+}
+
+.navbar{
+  background-color: #ffffff;
 }
 
 /* Custom page footer */
@@ -57,17 +62,26 @@ a{
 
   #now-playing{
     float: right;
+    width: 100%;
   }
   #now-playing.affix{
     position: fixed;
     right: 15px;
-    top: 0;
+    top: 15px;
     float: none;
+    width: 25%;
+    padding-left: 30px;
   }
   h2{
     font-size: 1em;
-    margin: 0.8em 0;
+    margin: 0.2em 0;
     color: rgba(0, 0, 0, 0.5);
   }
+  input[type='text'], select:focus {
+    color: black;
+  }
+
+
+
 
 }

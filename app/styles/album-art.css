@@ -1,3 +1,6 @@
+#album-art{
+  text-align: center;
+}
 #album-art img.art{
   width: 256px;
   height: 256px;

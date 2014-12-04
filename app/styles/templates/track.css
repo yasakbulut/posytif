@@ -1,4 +1,6 @@
-pst-track{
-  border: 1px solid black;
-  display: block;
+pst-track .name{
+  font-size: 1.8em;
+}
+pst-track .duration{
+  color: rgba(0, 0, 0, 0.4);
 }

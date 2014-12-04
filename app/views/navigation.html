@@ -1,10 +1,17 @@
-<h2>PLAYLISTS</h2>
-<p ng-if="!loginStatus.loggedIn"class="notice">Log in to view and create playlists.</p>
-<form ng-show="loginStatus.loggedIn" ng-submit="createPlaylist(newPlaylistName)">
-  <input type="text" placeholder="Create new.." ng-model="newPlaylistName"/>
-</form>
-<ul>
-  <li ng-repeat="playlist in playlists">
-    <a ng-href="#/playlist/{{playlist.$id}}">{{ playlist.name }}</a>
-  </li>
-</ul>
+<div class="panel panel-default">
+  <div class="panel-heading">PLAYLISTS</div>
+  <div class="panel-body">
+    <p ng-if="!loginStatus.loggedIn"class="notice">Log in to view and create playlists.</p>
+    <form ng-show="loginStatus.loggedIn" ng-submit="createPlaylist(newPlaylist.name)">
+      <div class="form-group">
+        <input type="text" class="form-control floating-label" placeholder="Create new.." ng-model="newPlaylist.name"/>
+      </div>
+    </form>
+    <p ng-if="loginStatus.loggedIn && playlists.length == 0"class="notice">You have no playlists, why not create one?</p>
+    <ul>
+      <li ng-repeat="playlist in playlists">
+        <a ng-href="#/playlist/{{playlist.$id}}">{{ playlist.name }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,15 +1,26 @@
-<div class="track">
-  <div class="name">{{track.name}}</div>
-  <div class="artist">{{track.artist}}</div>
-  <div class="album">{{track.album.name}}</div>
-  <div class="duration">{{track.duration_ms | date:'mm:ss'}}</div>
-  <div class="actions">
-    <select ng-model="track.destinedPlaylist" ng-if="playlists"  ng-options="pl.name for pl in playlists">
-      <option value="">Select..</option>
-    </select>
-    <button ng-click="addTrackToPlaylist(track)">add to playlist</button>
-    <button ng-if="playlist" ng-click="removeTrackFromPlaylist(firebaseId, playlist)">remove from this playlist</button>
-    <button ng-click="playTrack(track)">play now</button>
-    <button ng-click="queueTrack(track)">queue</button>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="name">{{track.name}}</div>
+    <div class="artist">{{track.artist}}</div>
+    <div class="album">{{track.album.name}}</div>
+    <div class="duration">{{track.duration_ms | date:'mm:ss'}}</div>
+  </div>
+  <div class="panel-footer">
+    <div class="actions">
+        <div class="btn-group">
+          <a class="btn btn-flat btn-default dropdown-toggle" data-toggle="dropdown">
+            add to playlist
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="pl in playlists">
+              <a ng-click="addTrackToPlaylist(track, pl)">{{pl.name}}</a>
+            </li>
+          </ul>
+        </div>
+      <button class="btn btn-default" ng-click="playTrack(track)">play now</button>
+      <button class="btn btn-default" ng-click="queueTrack(track)">queue</button>
+      <button class="btn btn-danger" ng-if="playlist" ng-click="removeTrackFromPlaylist(firebaseId, playlist)">delete</button>
+    </div>
   </div>
 </div>

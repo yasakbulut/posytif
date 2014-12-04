@@ -1,6 +1,7 @@
 #controls{
   text-align: center;
   width: 256px;
+  margin: auto;
 }
 #controls a{
   color: rgba(0, 0, 0, .87);

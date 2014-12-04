@@ -43,11 +43,19 @@ angular.module('posytifApp')
       }
     };
 
+    var deletePlaylist = function(playlistId){
+      if(rootRef!=null){
+        var ref = rootRef.child(playlistId);
+        $firebase(ref).$remove();
+      }
+    };
+
     return {
       getPlaylistsOfUser: getPlaylistsOfUser,
       addTrackToPlaylist: addTrackToPlaylist,
       removeTrackFromPlaylist: removeTrackFromPlaylist,
-      getPlaylistById: getPlaylistById
+      getPlaylistById: getPlaylistById,
+      deletePlaylist: deletePlaylist
     };
 
   });

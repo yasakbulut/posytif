@@ -20,9 +20,11 @@ angular.module('posytifApp')
       }
     });
 
-    $scope.addTrackToPlaylist = function(track){
-      PlaylistService.addTrackToPlaylist(track, track.destinedPlaylist.$id);
+    $scope.addTrackToPlaylist = function(track, playlist){
+      PlaylistService.addTrackToPlaylist(track, playlist.$id);
     };
+
+
 
     $scope.playTrack = function (track) {
 
@@ -46,5 +48,9 @@ angular.module('posytifApp')
         trackList.push(tracks[i]);
       }
       QueueService.setQueue(trackList);
+      PlayerService.next();
+      if(PlayerService.getState().playState !== playerStates.PLAYING){
+        PlayerService.play();
+      }
     }
   });

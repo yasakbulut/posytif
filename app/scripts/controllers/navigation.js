@@ -12,12 +12,15 @@
  */
 angular.module('posytifApp')
   .controller('NavigationCtrl', function ($scope) {
-
+    $scope.newPlaylist = {
+      name: ''
+    };
     $scope.createPlaylist = function(name){
       $scope.playlists.$add({
         name: name,
         tracks: []
       });
+      $scope.newPlaylist.name = '';
     };
 
   });
