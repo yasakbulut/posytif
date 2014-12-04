@@ -20,3 +20,62 @@
 #navigation li a:hover {
   text-decoration: none;
 }
+#navigation.affix{
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  bottom: 15px;
+  float: none;
+  width: 25%;
+  padding-right: 30px;
+}
+#navigation.affix > div,
+#navigation.affix .panel{
+  height: 100%;
+}
+#navigation .playlist.ng-enter{
+  -webkit-transition:all ease-out 500ms;
+  transition:all ease-out 500ms;
+  opacity:0;
+  max-height:0;
+}
+#navigation .playlist.ng-enter.ng-enter-active{
+  opacity: 1;
+  max-height: none;
+}
+#navigation.affix .panel-body {
+  height: 100%;
+  margin-top: -46px;
+  padding-top: 46px;
+  position: relative;
+}
+#navigation .panel-body ul {
+  max-height: 68vh;
+  overflow-y: scroll;
+  overflow-x: visible;
+}
+#navigation.affix .panel-body ul {
+  height: 92%;
+  max-height: none;
+  overflow-y: scroll;
+  overflow-x: visible;
+}
+
+#playlistList::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+#playlistList::-webkit-scrollbar
+{
+  width: 3px;
+  background-color: #F5F5F5;
+}
+
+#playlistList::-webkit-scrollbar-thumb
+{
+  background-color: #000000;
+  border: 2px solid #555555;
+}
+

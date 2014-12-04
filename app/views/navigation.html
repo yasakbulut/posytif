@@ -8,8 +8,8 @@
       </div>
     </form>
     <p ng-if="loginStatus.loggedIn && playlists.length == 0"class="notice">You have no playlists, why not create one?</p>
-    <ul>
-      <li ng-repeat="playlist in playlists">
+    <ul id="playlistList">
+      <li class="playlist" ng-repeat="playlist in playlists">
         <a ng-href="#/playlist/{{playlist.$id}}">{{ playlist.name }}</a>
       </li>
     </ul>

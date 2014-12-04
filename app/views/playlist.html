@@ -12,10 +12,17 @@
                        class="btn btn-default btn-flat btn-lg">
       Play
     </button>
-    <button ng-confirm-click="Your playlist, {{playlist.name}}, will be deleted." confirmed-click="deletePlaylist(playlist)"
+    <button ng-confirm-click="Your playlist will be deleted." confirmed-click="deletePlaylist(playlist)"
             class="btn btn-danger btn-flat btn-lg">
       Delete
     </button>
+      <button class="btn btn-default btn-flat btn-lg" ng-click="editName()">Rename</button>
+    <form ng-show="editingName" ng-submit="renamePlaylist(playlist, newName)">
+      <div class="form-group">
+        <input type="text" class="form-control floating-label" placeholder="Enter new name.." ng-model="newName"/>
+      </div>
+    </form>
+
     </p>
   </div>
 
