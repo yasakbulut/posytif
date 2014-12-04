@@ -53,10 +53,13 @@ angular.module('posytifApp')
         });
     };
     var getTracksOfAlbum = function(albumId){
-      return $http.get('https://api.spotify.com/v1/albums/'+albumId+'/tracks', defaultConfig).
-        then(function(response){
-          return response.data.items;
-        });
+      return getAlbum(albumId).then(function(album){
+        return $http.get('https://api.spotify.com/v1/albums/'+albumId+'/tracks', defaultConfig).
+          then(function(response){
+            return response.data.items.map(function(item){item.album = album; return item});
+          });
+      });
+
     };
 
     return {

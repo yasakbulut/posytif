@@ -2,7 +2,6 @@
   width: 100%;
 }
 #album .image {
-  display: inline-block;
   position: relative;
 }
 #album .description {

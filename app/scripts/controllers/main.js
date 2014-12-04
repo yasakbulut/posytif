@@ -24,11 +24,7 @@ angular.module('posytifApp')
       PlaylistService.addTrackToPlaylist(track, playlist.$id);
     };
 
-
-    $scope.playTrack = function (track, album) {
-      if(album){
-        track.album = album;
-      }
+    $scope.playTrack = function (track) {
       QueueService.enqueue(track);
       PlayerService.next();
       if(PlayerService.getState().playState !== playerStates.PLAYING){
