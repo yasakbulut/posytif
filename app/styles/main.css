@@ -10,6 +10,9 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
+a{
+  cursor: pointer;
+}
 
 /* Custom page header */
 .header {
@@ -61,7 +64,7 @@ body {
     top: 0;
     float: none;
   }
-  #now-playing h2{
+  h2{
     font-size: 1em;
     margin: 0.8em 0;
     color: rgba(0, 0, 0, 0.5);

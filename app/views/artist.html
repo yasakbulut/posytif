@@ -1,18 +1,23 @@
-<h2>{{artist.name}}</h2>
-<h3>Top Tracks</h3>
-<ul>
-  <li ng-repeat="track in topTracks">
-    <pst-track>
-  </li>
-</ul>
-<h3>Albums</h3>
-<ul>
-  <li ng-repeat="album in albums">
-    <div ng-click="getTracksOfAlbum(album)">{{album.name}}</div>
-  </li>
-</ul>
-<ul>
-  <li ng-repeat="track in tracksOfSelectedAlbum">
-    <pst-track>
-  </li>
-</ul>
+<div id="artist">
+  <h2>ARTIST</h2>
+  <div class="image" ng-if="artist.images.length > 0">
+    <img ng-src="{{artist.images[0].url}}" alt=""/>
+    <div class="name">{{artist.name}}</div>
+  </div>
+  <div class="name">{{artist.name}}</div>
+  <h2>TOP TRACKS</h2>
+  <div id="top-tracks">
+    <pst-track ng-repeat="track in topTracks">
+  </div>
+  <h2>ALBUMS</h2>
+  <ul>
+    <li ng-repeat="album in albums">
+      <div ng-click="getTracksOfAlbum(album)">{{album.name}}</div>
+    </li>
+  </ul>
+  <ul>
+    <li ng-repeat="track in tracksOfSelectedAlbum">
+      <pst-track>
+    </li>
+  </ul>
+</div>
