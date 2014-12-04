@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="name">{{track.name}}</div>
-    <div class="artist">{{track.artist}}</div>
+    <div class="artist">{{track.artists | joinArtistNames}}</div>
     <div class="album">{{track.album.name}}</div>
     <div class="duration">{{track.duration_ms | date:'mm:ss'}}</div>
   </div>

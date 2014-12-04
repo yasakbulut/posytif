@@ -80,6 +80,10 @@ angular.module('posytifApp')
       player.currentTrack.duration = track.duration_ms / 1000;
       player.currentTrack.name = track.name;
       player.currentTrack.artist = track.artists.map(function(artist){return artist.name}).join(", ");
+      player.currentTrack.album = {
+        name: track.album.name,
+        art: track.album.images.length>0?track.album.images[0].url:''
+      }
     };
 
     var tick = function(){

@@ -1,7 +1,52 @@
-<form ng-submit="search(query)"><label for="searchInput">Search</label><input id="searchInput" type="text" ng-model="query"/></form>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form ng-submit="search(query)">
+      <div class="form-group">
+        <label class="control-label" for="inputLarge">Search</label>
+        <input class="form-control input-lg" type="text" ng-model="query" id="inputLarge">
+      </div>
+    </form>
+  </div>
+</div>
+  <div class="row" >
+    <div id="results" class="col-md-12">
+      <tabset justified="true">
+        <tab ng-if="tracks.items.length > 0" heading="TRACKS">
+          <pst-track ng-repeat="track in tracks.items">
+        </tab>
+        <tab ng-if="artists.items.length > 0" heading="ARTISTS">
+          <div  class="panel panel-default">
+            <div class="panel-body artists">
+              <div class="artist" ng-repeat="artist in artists.items">
+                <a ng-href="#/artist/{{artist.id}}">
+                  <h4 class="list-group-item-heading">{{artist.name}}</h4>
+                </a>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab ng-if="albums.items.length > 0" heading="ALBUMS">
+          <div  class="panel panel-default">
+            <div class="panel-body artists">
+              <div class="artist" ng-repeat="album in albums.items">
+                <a ng-href="#/artist/{{album.id}}">
+                  <h4 class="list-group-item-heading">{{album.name}}</h4>
+                </a>
+              </div>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+<div  class="row">
+  <div class="col-md-4">
 
-<ul>
-  <li ng-repeat="artist in artists.items">
-    <a ng-href="#/artist/{{artist.id}}">{{artist.name}}</a>
-  </li>
-</ul>
+
+  </div>
+  <div class="col-md-8">
+
+  </div>
+
+</div>
+

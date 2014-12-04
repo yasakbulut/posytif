@@ -1,0 +1,13 @@
+#results .artists .artist {
+  padding: 1em 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .5);
+}
+
+#results .artists  .artist:last-child{
+  border: none;
+}
+
+#results .artists .artist a {
+  color: rgba(0, 0, 0, .87);
+  display: block;
+}

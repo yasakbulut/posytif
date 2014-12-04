@@ -10,7 +10,7 @@
  */
 angular
   .module('posytifApp', [
-    'firebase', 'ngRoute'
+    'firebase', 'ngRoute', 'ui.bootstrap'
   ]).config(function($routeProvider){
     $routeProvider.
       when('/playlist/:playlistId', {
