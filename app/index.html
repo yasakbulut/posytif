@@ -16,6 +16,9 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/user.css">
+    <link rel="stylesheet" href="styles/navigation.css">
+    <link rel="stylesheet" href="styles/album-art.css">
+    <link rel="stylesheet" href="styles/controls.css">
     <!-- endbuild -->
   </head>
   <body ng-app="posytifApp">
@@ -40,22 +43,19 @@
       </div>
       <div class="row">
         <div class="col-md-3">
-          <div ng-include="'views/navigation.html'" ng-controller="NavigationCtrl"></div>
+
+          <div id="navigation" ng-include="'views/navigation.html'" ng-controller="NavigationCtrl"></div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-6">
           <div ng-view></div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-5">
-          <div ng-include="'views/album_art.html'" ng-controller="AlbumArtCtrl"></div>
+        <div class="col-md-3">
+          <div id="now-playing" data-spy="affix" data-offset-top="104">
+            <h2>NOW PLAYING</h2>
+            <div id="album-art" ng-include="'views/album-art.html'" ng-controller="AlbumArtCtrl"></div>
+            <div id="controls" ng-include="'views/controls.html'" ng-controller="ControlsCtrl"></div>
+          </div>
         </div>
-        <div class="col-md-7">
-          <div ng-include="'views/controls.html'" ng-controller="ControlsCtrl"></div>
-        </div>
-      </div>
-      <div class="footer">
-        <p>Made with <span class="glyphicon glyphicon-heart"></span>, by yasa</p>
       </div>
     </div>
 

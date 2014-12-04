@@ -1,8 +1,17 @@
-<button ng-click="play()">Play</button>
-<button ng-click="pause()">Pause</button>
-<button ng-click="previous()">Previous</button>
-<button ng-click="next()">Next</button>
-<button ng-click="stop()">Stop</button>
+<div class="buttons">
+  <a class="pull-left" ng-click="previous()">
+    <i class="fa fa-fast-backward"></i>
+  </a>
+  <a class="play" ng-show="state.playState !== states.PLAYING"
+     ng-click="play()">
+    <i class="fa fa-play"></i>
+  </a>
+  <a class="pause" ng-show="state.playState === states.PLAYING"
+     ng-click="pause()">
+    <i class="fa fa-pause"></i>
+  </a>
+  <a class="pull-right" ng-click="next()"><i class="fa fa-fast-forward"></i></a>
+</div>
 
 <input type="range" min="0" ng-model="position.seconds" max="{{ current.duration }}" step="1">
 

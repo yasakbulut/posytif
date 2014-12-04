@@ -1,4 +1,5 @@
-<h2>Playlists</h2>
+<h2>PLAYLISTS</h2>
+<p ng-if="!loginStatus.loggedIn"class="notice">Log in to view and create playlists.</p>
 <form ng-show="loginStatus.loggedIn" ng-submit="createPlaylist(newPlaylistName)">
   <input type="text" placeholder="Create new.." ng-model="newPlaylistName"/>
 </form>

@@ -1,0 +1,19 @@
+#controls{
+  text-align: center;
+  width: 256px;
+}
+#controls a{
+  color: rgba(0, 0, 0, .87);
+  font-size: 2em;
+  height: 55px;
+  line-height: 55px;
+  cursor: pointer;
+}
+#controls a.play,
+#controls a.pause {
+  font-size: 3em;
+}
+#controls .buttons{
+  margin: 10px 0;
+}
+

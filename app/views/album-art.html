@@ -1,0 +1,9 @@
+<div class="cover-container">
+  <img class="art" ng-src="{{ current.album.art || defaultArt }}" alt="Album Art"/>
+  <div ng-if="current.name" class="track-info">
+    <p class="title">{{ current.name }}</p>
+    <p class="artist">{{ current.artist}}</p>
+  </div>
+</div>
+
+
