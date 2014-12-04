@@ -1,23 +1,27 @@
 <div id="artist">
-  <h2>ARTIST</h2>
-  <div class="image" ng-if="artist.images.length > 0">
-    <img ng-src="{{artist.images[0].url}}" alt=""/>
-    <div class="name">{{artist.name}}</div>
+  <div  class="panel panel-default">
+    <div class="panel-body">
+      <div class="image" ng-if="artist.images.length > 0">
+        <img ng-src="{{artist.images[0].url}}" alt=""/>
+        <div class="name">{{artist.name}}</div>
+      </div>
+      <div ng-if="artist.images.length == 0" class="name">{{artist.name}}</div>
+    </div>
   </div>
-  <div class="name">{{artist.name}}</div>
-  <h2>TOP TRACKS</h2>
-  <div id="top-tracks">
-    <pst-track ng-repeat="track in topTracks">
-  </div>
-  <h2>ALBUMS</h2>
-  <ul>
-    <li ng-repeat="album in albums">
-      <div ng-click="getTracksOfAlbum(album)">{{album.name}}</div>
-    </li>
-  </ul>
-  <ul>
-    <li ng-repeat="track in tracksOfSelectedAlbum">
-      <pst-track>
-    </li>
-  </ul>
+  <tabset justified="true">
+    <tab ng-if="topTracks.length > 0" heading="TOP TRACKS">
+      <pst-track ng-repeat="track in topTracks">
+    </tab>
+    <tab ng-if="albums.length > 0" heading="ALBUMS">
+      <div id="results" class="panel panel-default">
+        <div class="panel-body artists">
+          <div class="artist" ng-repeat="album in albums">
+            <a ng-href="#/album/{{album.id}}">
+              <h4 class="list-group-item-heading">{{album.name}}</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </tab>
+  </tabset>
 </div>
