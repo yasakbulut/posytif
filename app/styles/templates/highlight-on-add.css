@@ -1,0 +1,14 @@
+.highlight-on-add{
+  animation-duration: 1s;
+  animation-name: highlight;
+}
+
+@keyframes highlight {
+  from {
+    background-color: #FF80AB;
+  }
+
+  to {
+    background-color: transparent;
+  }
+}

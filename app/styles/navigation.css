@@ -51,13 +51,13 @@
 }
 #navigation .panel-body ul {
   max-height: 68vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: visible;
 }
 #navigation.affix .panel-body ul {
   height: 92%;
   max-height: none;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: visible;
 }
 

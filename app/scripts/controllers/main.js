@@ -25,11 +25,11 @@ angular.module('posytifApp')
     };
 
 
-
-    $scope.playTrack = function (track) {
-
+    $scope.playTrack = function (track, album) {
+      if(album){
+        track.album = album;
+      }
       QueueService.enqueue(track);
-
       PlayerService.next();
       if(PlayerService.getState().playState !== playerStates.PLAYING){
         PlayerService.play();

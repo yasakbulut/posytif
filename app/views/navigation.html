@@ -9,7 +9,7 @@
     </form>
     <p ng-if="loginStatus.loggedIn && playlists.length == 0"class="notice">You have no playlists, why not create one?</p>
     <ul id="playlistList">
-      <li class="playlist" ng-repeat="playlist in playlists">
+      <li highlight-on-add class="playlist" ng-repeat="playlist in playlists">
         <a ng-href="#/playlist/{{playlist.$id}}">{{ playlist.name }}</a>
       </li>
     </ul>
