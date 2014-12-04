@@ -39,6 +39,13 @@ angular.module('posytifApp')
         });
     };
 
+    var getAlbum = function(albumId){
+      return $http.get('https://api.spotify.com/v1/albums/'+albumId, defaultConfig).
+        then(function(response){
+          return response.data;
+        });
+    };
+
     var getAlbumsOfArtist = function(artistId, country){
       return $http.get('https://api.spotify.com/v1/artists/'+artistId+'/albums?country='+country, defaultConfig).
         then(function(response){
@@ -56,6 +63,7 @@ angular.module('posytifApp')
       search: search,
       getTopTracks: getTopTracks,
       getArtist: getArtist,
+      getAlbum: getAlbum,
       getAlbumsOfArtist: getAlbumsOfArtist,
       getTracksOfAlbum: getTracksOfAlbum
     };

@@ -33,6 +33,10 @@ angular
         templateUrl: 'views/artist.html',
         controller: 'ArtistCtrl'
       }).
+      when('/album/:albumId', {
+        templateUrl: 'views/album.html',
+        controller: 'AlbumCtrl'
+      }).
       otherwise({
         redirectTo: '/search'
       });

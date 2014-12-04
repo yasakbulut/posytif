@@ -1,0 +1,15 @@
+<div id="album">
+  <div  class="panel panel-default">
+    <div class="panel-body">
+      <div class="image" ng-if="album.images.length > 0">
+        <img ng-src="{{album.images[0].url}}" alt=""/>
+        <div class="description">
+          <p>{{album.name}}</p>
+          <p class="artist">{{album.artists | joinArtistNames}}</p>
+        </div>
+      </div>
+      <div ng-if="album.images.length == 0" class="name">{{album.name}}</div>
+    </div>
+  </div>
+  <pst-track ng-repeat="track in tracks">
+</div>

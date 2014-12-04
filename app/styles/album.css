@@ -1,0 +1,22 @@
+#album .image img {
+  width: 100%;
+}
+#album .image {
+  display: inline-block;
+  position: relative;
+}
+#album .description {
+  padding: 0.3em 0em;
+  font-size: 2em;
+}
+#album .description p {
+  margin: 0;
+}
+#album .description p.artist {
+  font-size: 0.6em;
+  color: rgba(0, 0, 0, 0.61);
+}
+
+#album ul{
+  margin-bottom: 2em;
+}
