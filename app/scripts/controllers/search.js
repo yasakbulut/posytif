@@ -18,12 +18,7 @@ angular.module('posytifApp')
     $scope.search = function(query){
       $route.updateParams({query: query});
     };
-
-    $scope.getTopTracks = function(artist){
-      SpotifyService.getTopTracks(artist.id, 'TR').then(function(data){
-        $scope.tracks = data.tracks;
-      })
-    };
+    
     if($scope.query){
       SpotifyService.search($scope.query).then(function(data){
         $scope.albums = data.albums;
