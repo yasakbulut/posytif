@@ -4,7 +4,7 @@
     <p ng-if="!loginStatus.loggedIn"class="notice">Log in to view and create playlists.</p>
     <form ng-show="loginStatus.loggedIn" ng-submit="createPlaylist(newPlaylist.name)">
       <div class="form-group">
-        <input type="text" class="form-control floating-label" placeholder="Create new.." ng-model="newPlaylist.name"/>
+        <input type="text" class="form-control" placeholder="Create new.." ng-model="newPlaylist.name"/>
       </div>
     </form>
     <p ng-if="loginStatus.loggedIn && playlists.length == 0"class="notice">You have no playlists, why not create one?</p>

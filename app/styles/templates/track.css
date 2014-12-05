@@ -5,18 +5,24 @@ pst-track .duration{
   color: rgba(0, 0, 0, 0.4);
 }
 .animate.ng-leave{
-  -webkit-animation:0.5s fadeOut ease-in-out;
-  -moz-animation:0.5s fadeOut ease-in-out;
-  -o-animation:0.5s fadeOut ease-in-out;
-  animation:0.5s fadeOut ease-in-out;
+  -webkit-animation:0.5s fadeOut ease-in;
+  -moz-animation:0.5s fadeOut ease-in;
+  -o-animation:0.5s fadeOut ease-in;
+  animation:0.5s fadeOut ease-in;
   height: auto;
+}
+.animate{
+  transform: translateX(0);
 }
 
 @keyframes fadeOut {
-  from { opacity:1;
-    height: initial;
+  from {
+    opacity:1;
+    transform: translateX(0);
   }
-  to { opacity:0;
-    height: 0;
+  to {
+    opacity:0;
+    transform: translateX(255px);
+
   }
 }

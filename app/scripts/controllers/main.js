@@ -8,7 +8,7 @@
  * Main controller of the posytifApp. Contains behaviour that's available everywhere.
  */
 angular.module('posytifApp')
-  .controller('MainCtrl', function ($scope, SpotifyService, $routeParams, PlaylistService, AuthService, PlayerService, QueueService, playerStates) {
+  .controller('MainCtrl', function ($scope, SpotifyService, $routeParams, PlaylistService, AuthService, PlayerService, QueueService, playerStates, $document) {
 
     $scope.loginStatus = AuthService.loginStatus;
 
@@ -49,4 +49,8 @@ angular.module('posytifApp')
         PlayerService.play();
       }
     }
+
+    $document.ready(function(){
+      jQuery.material.init();
+    });
   });

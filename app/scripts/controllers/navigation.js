@@ -11,7 +11,7 @@
  * Controller of the posytifApp
  */
 angular.module('posytifApp')
-  .controller('NavigationCtrl', function ($scope) {
+  .controller('NavigationCtrl', function ($scope, $document) {
     $scope.newPlaylist = {
       name: ''
     };
