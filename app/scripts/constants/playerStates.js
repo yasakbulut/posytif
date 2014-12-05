@@ -1,15 +1,11 @@
-/**
- * Created by yasa on 02/12/14.
- */
-'use strict';
+// This module defines constants to represent playback state, for use throughout the application.
+// Kind of like Java Enums.
 
-/**
- * @ngdoc constant
- * @name posytifApp.service:playerStates
- * @description
- * # playerStates
- * Player States used throughout posytifApp
- */
+// 3 values:
+// * PLAYING
+// * PAUSED
+// * STOPPED
+'use strict';
 angular.module('posytifApp')
   .constant('playerStates', {
     PLAYING: 'playing',

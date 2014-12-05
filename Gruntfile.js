@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
+  grunt.loadNpmTasks('grunt-exec');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -39,6 +40,10 @@ module.exports = function (grunt) {
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
+      },
+      docs:{
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        tasks: ['exec:generate_docs']
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
@@ -352,6 +357,10 @@ module.exports = function (grunt) {
       ]
     },
 
+    exec:{
+      generate_docs: "find app/ -name '*.js' -exec docco -l linear {} +"
+    },
+
     // Test settings
     karma: {
       unit: {
@@ -369,6 +378,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'exec:generate_docs',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -412,4 +422,6 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('docs',['exec:generate_docs']);
 };

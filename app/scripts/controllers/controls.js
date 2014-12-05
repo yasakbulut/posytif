@@ -1,26 +1,19 @@
-/**
- * Created by yasa on 02/12/14.
- */
-'use strict';
+//Controller for the Player Controls view.
 
-/**
- * @ngdoc function
- * @name posytifApp.controller:AlbumArtCtrl
- * @description
- * # AlbumArtCtrl
- * Controller of the album art module of the posytifApp
- */
+// Depends on `PlayerService` for obvious reasons, and uses constants from `playerStates`.
+'use strict';
 angular.module('posytifApp')
   .controller('ControlsCtrl', function ($scope, PlayerService, playerStates) {
+    // Expose position, current track info and player state, for usage in the view.
     $scope.position = PlayerService.getPosition();
     $scope.current = PlayerService.getCurrent();
     $scope.state = PlayerService.getState();
     $scope.states = playerStates;
 
+    // Expose play, pause, previous, next functions for usage in view.
     $scope.play = function () {
       PlayerService.play();
     };
-
     $scope.pause = function () {
       PlayerService.pause();
     };
@@ -29,8 +22,5 @@ angular.module('posytifApp')
     };
     $scope.next = function () {
       PlayerService.next();
-    };
-    $scope.stop = function () {
-      PlayerService.stop();
     };
   });
