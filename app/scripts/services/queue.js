@@ -55,6 +55,9 @@ angular.module('posytifApp')
         index--;
         return queue[index];
       }else{
+        if(index == 0){
+          index--;
+        }
         return null;
       }
       console.log(index, queue);

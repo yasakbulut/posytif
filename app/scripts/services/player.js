@@ -29,14 +29,18 @@ angular.module('posytifApp')
     };
 
     var play = function(){
-      if(!player.currentTrack){
-        setCurrentTrack(QueueService.getNext());
-      }
-      if(player.currentTrack === null || !player.currentTrack.duration){
-        return;
+      if(!player.currentTrack || !player.currentTrack.duration){
+        var nextSong = QueueService.getNext();
+        if(nextSong === null){
+          return;
+        }else{
+          setCurrentTrack(nextSong);
+          player.position.seconds = 0;
+        }
       }
       player.statePromise = $interval(tick, 1000);
       player.state.playState = playerStates.PLAYING;
+      console.log('play called', player);
     };
 
     var pause = function(){
@@ -51,7 +55,7 @@ angular.module('posytifApp')
       player.position.seconds = 0;
       $interval.cancel(player.statePromise);
       //QueueService.empty();
-      console.log('stop called');
+      console.log('stop called', player);
     };
 
     var next = function(){
@@ -62,7 +66,7 @@ angular.module('posytifApp')
         setCurrentTrack(nextSong);
         player.position.seconds = 0;
       }
-      console.log('next called');
+      console.log('next called', player);
     };
 
     var previous = function(){
@@ -73,7 +77,7 @@ angular.module('posytifApp')
         setCurrentTrack(previousSong);
         player.position.seconds = 0;
       }
-      console.log('previous called');
+      console.log('previous called', player);
     };
 
     var setCurrentTrack = function(track){
