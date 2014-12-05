@@ -22,8 +22,8 @@ angular.module('posytifApp')
     // Expose the "play now" functionality.
     $scope.playTrack = function (track) {
 
-      // Add the requested track to the queue, so that the current song will be pushed to the history.
-      QueueService.enqueue(track);
+      // Add the requested track to the beginning of the queue, so that the current song will be pushed to the history.
+      QueueService.enqueue(track, true);
 
       // Get to the newly queued song.
       PlayerService.next();

@@ -17,8 +17,12 @@ angular.module('posytifApp')
     var priorityQueue = [];
     var index = -1;
 
-    var enqueue = function(track){
-      priorityQueue.push(track);
+    var enqueue = function(track, insertAtBeginning){
+      if(insertAtBeginning){
+        priorityQueue.unshift(track);
+      }else{
+        priorityQueue.push(track);
+      }
       console.log(index, queue);
     };
 
@@ -38,7 +42,10 @@ angular.module('posytifApp')
         index++;
         return queue[index];
       }else{
-        return null; //TODO:maybe trigger event
+        if(index == queue.length-1){
+          index++;
+        }
+        return null;
       }
       console.log(index, queue);
     };
