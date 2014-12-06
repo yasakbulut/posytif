@@ -58,4 +58,9 @@
 
 .affix #album-art .no-track{
   display: block;
+  position: relative;
+  background: none;
+  color: rgba(0, 0, 0, 0.87);
+  padding-top: 1em;
+  left: 0.5em;
 }
