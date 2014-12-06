@@ -13,64 +13,67 @@
 angular.module('posytifApp')
   .factory('QueueService', function () {
 
-    var queue = [];
-    var priorityQueue = [];
     var index = -1;
+
+    var queues = {
+      standard: [],
+      priority: []
+    };
 
     var enqueue = function(track, insertAtBeginning){
       if(insertAtBeginning){
-        priorityQueue.unshift(track);
+        queues.priority.unshift(track);
       }else{
-        priorityQueue.push(track);
+        queues.priority.push(track);
       }
-      console.log(index, queue);
+      console.log(index, queues.standard);
     };
 
     var setQueue = function(list){
-      queue = queue.slice(0,index+1).concat(list);
-      console.log(index, queue);
+      queues.standard = queues.standard.slice(0,index+1).concat(list);
+      console.log(index, queues.standard);
     };
 
     var getNext = function(){
-      if(priorityQueue.length>0){
-        var next = priorityQueue.shift();
-        queue.splice(index+1, 0, next);
+      if(queues.priority.length>0){
+        var next = queues.priority.shift();
+        queues.standard.splice(index+1, 0, next);
         index++;
         return next;
       }
-      if(index<queue.length-1){
+      if(index<queues.standard.length-1){
         index++;
-        return queue[index];
+        return queues.standard[index];
       }else{
-        if(index == queue.length-1){
+        if(index == queues.standard.length-1){
           index++;
         }
         return null;
       }
-      console.log(index, queue);
+      console.log(index, queues.standard);
     };
 
     var getPrevious = function(){
       if(index>0){
         index--;
-        return queue[index];
+        return queues.standard[index];
       }else{
         if(index == 0){
           index--;
         }
         return null;
       }
-      console.log(index, queue);
+      console.log(index, queues.standard);
     };
 
     var empty = function(){
-      queue = [];
+      queues.standard = [];
       index = -1;
-      console.log(index, queue);
+      console.log(index, queues.standard);
     };
 
     var getUpcoming = function(){
-      return angular.copy(priorityQueue.concat(queue.slice(index+1, queue.length)));
+      return queues.priority.concat(queues.standard.slice(index+1, queues.standard.length));
     };
 
     return {

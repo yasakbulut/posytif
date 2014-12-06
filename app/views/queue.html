@@ -1,5 +1,14 @@
-<ul>
-  <li ng-repeat="track in upcoming">
-    {{track.title}}
-  </li>
-</ul>
+<div id="queue" ng-if="getQueues().length > 0">
+  <div class="panel panel-default">
+    <div class="panel-heading">UPCOMING</div>
+    <div class="panel-body">
+      <ul>
+        <li ng-repeat="track in getQueues() | limitTo: 5 track by $index">
+          {{track.name}}
+        </li>
+        <li ng-if="getQueues().length == 6">{{getQueues()[5].name}}</li>
+        <li ng-if="getQueues().length > 6">.. and {{getQueues().length - 5}} more.</li>
+      </ul>
+    </div>
+  </div>
+</div>

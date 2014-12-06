@@ -4,6 +4,9 @@
     <p class="title">{{ current.name }}</p>
     <p class="artist">{{ current.artist}}</p>
   </div>
+  <div ng-if="!current.name" class="no-track">
+    <p>Currently no track is playing.</p>
+  </div>
 </div>
 
 

@@ -12,7 +12,7 @@
   </a>
   <a class="pull-right" ng-click="next()"><i class="fa fa-fast-forward"></i></a>
 </div>
-
-<input type="range" min="0" ng-model="position.seconds" max="{{ current.duration }}" step="1">
-
-{{position.seconds * 1000 | date:'mm:ss'}} / {{(current.duration || 0) * 1000 | date:'mm:ss'}}
+<div class="position" ng-if="current.duration">
+  <input type="range" min="0" ng-model="position.seconds" max="{{ current.duration }}" step="1">
+  <span class="time">{{position.seconds * 1000 | date:'mm:ss'}} / {{(current.duration || 0) * 1000 | date:'mm:ss'}}</span>
+</div>

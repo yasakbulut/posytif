@@ -2,12 +2,16 @@
   text-align: center;
   width: 256px;
   margin: auto;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 #controls a{
   font-size: 2em;
   height: 55px;
   line-height: 55px;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 #controls a.play,
 #controls a.pause {
@@ -17,3 +21,20 @@
   margin: 10px 0;
 }
 
+.affix #controls a {
+  font-size: 1.4em;
+  height: 35px;
+  line-height: 35px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.affix #controls {
+  width: 100%;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.affix #controls .position .time{
+  display: none;
+}

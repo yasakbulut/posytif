@@ -1,0 +1,21 @@
+#queue li {
+  list-style-type: none;
+  padding: 0.7em 0em;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  display: block;
+}
+#queue li:last-child{
+  border-bottom: none;
+}
+
+#queue ul {
+  padding-left: 0;
+}
+
+#queue li a {
+  display: block;
+}
+
+#queue li a:hover {
+  text-decoration: none;
+}

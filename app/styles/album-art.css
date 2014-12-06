@@ -4,6 +4,8 @@
 #album-art img.art{
   width: 256px;
   height: 256px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 #album-art .cover-container{
   display: inline-block;
@@ -21,7 +23,39 @@
   background-image:      -o-linear-gradient(top, rgba(0, 0, 0, .2), rgba(0, 0, 0, .8)); /* For old Opera (11.1 to 12.0) */
   background-image:         linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .8)); /* Standard syntax; must be last */
 }
+#album-art .no-track{
+  display: none;
+}
 
 #album-art .track-info p{
   margin: 0;
+}
+
+.affix #album-art img.art {
+  height: 64px;
+  width: 64px;
+  float: left;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.affix #album-art .cover-container {
+  position: static;
+  width: 100%;
+}
+
+.affix #album-art .track-info {
+  position: relative;
+  background: none;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 0.4em;
+  left: 0.5em;
+}
+
+.affix #album-art {
+  text-align: left;
+}
+
+.affix #album-art .no-track{
+  display: block;
 }
