@@ -10,8 +10,6 @@
   height: 55px;
   line-height: 55px;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 #controls a.play,
 #controls a.pause {
@@ -25,8 +23,6 @@
   font-size: 1.4em;
   height: 35px;
   line-height: 35px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
 }
 
 .affix #controls {
