@@ -8,8 +8,8 @@ angular.module('posytifApp')
     // Get the specified artist id from the URL.
     var artistId = $routeParams.artistId;
 
-    // Set the country to be used in Spotify queries.
-    var country = 'TR'; //TODO: detect this
+    // Set the country to be used in Spotify queries. Defaults to TR.
+    var country = 'TR';
 
     // Get artist info and put it in the scope.
     SpotifyService.getArtist(artistId).then(function(artist){

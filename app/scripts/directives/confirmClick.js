@@ -7,7 +7,7 @@ angular.module('posytifApp')
       link: function (scope, element, attr) {
         // Get the confirmation message from the element's attributes. Default message is: `Are you sure?`
         var msg = attr.ngConfirmClick || "Are you sure?";
-        // Get the aßction to be performed from the element's attributes.
+        // Get the action to be performed from the element's attributes.
         var clickAction = attr.confirmedClick;
 
         // On click, show an alert box (using `sweetalert.js`), then evaluate the requested action
