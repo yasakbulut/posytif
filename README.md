@@ -1,21 +1,34 @@
 # posytif
 
-posytif is a semi­-functional web-­based Music Player interface using HTML5 and JavaScript technologies.
+posytif is a semi-functional web-based Music Player interface using HTML5 and JavaScript technologies.
 
 In a nutshell, it's an AngularJS application in front of Firebase and Spotify Web API.
 
 # installing
 
 make sure npm is installed on your system. then:
+
 ```
 npm install
 bower install
 ```
+
 this will install the dependencies. then, you can start a server with:
+
 ```
 grunt serve
 ```
+
 visit `localhost:9000` to use the app.
+
+to build the distribution version run:
+
+```
+grunt build
+```
+
+the app will be in the `dist/` folder.
+
 
 ## don't want to install?
 
@@ -28,6 +41,11 @@ In the root directory, the following files are present:
 * `package.json`: definition of the npm module of this application, and development dependencies
 * `bower.json`: declares client-side dependencies
 * `Gruntfile.js`: build file
+
+## documentation
+
+Semi-detailed documentation lives below, in the README. However, the distribution folder contains detailed documentation generated with `docco`. To generate this documentation, run `grunt build`.
+The generated files will be inside the `dist/docs` folder.
 
 ## app
 
@@ -146,7 +164,7 @@ This module is defined in `app/scripts/controllers/playlist.js`.
 
 ### QueueCtrl
 
-This controller is currently not used.
+This controller controls the queue view..
 
 This module is defined in `app/scripts/controllers/queue.js`.
 
@@ -271,11 +289,11 @@ This directive allows us to show a confirmation dialog before taking an action, 
 
 This module is defined in `app/scripts/directives/confirmClick.js`.
 
-### highlightOnAdd
+### highlightOnChange
 
-This directive provides visual feedback to the user when she adds a track to a playlist, by momentarily highlighting that playlist in the navigation bar.
+This directive temporarily adds a CSS class to an element, whenever the value of an expression changes. This is used to provide visual feedback to the user when she adds a track to a playlist, by momentarily highlighting that playlist in the navigation bar.
 
-This module is defined in `app/scripts/directives/highlightOnAdd.js`.
+This module is defined in `app/scripts/directives/highlightOnChange.js`.
 
 ## Filters
 
@@ -339,9 +357,9 @@ This view shows the track listing of a playlist. It also exposes the following a
 
 This view is defined in `app/views/playlist.html`.
 
-### Queue Page
+### Queue
 
-This view is currently not used.
+This view shows the upcoming tracks. At most 6 lines are shown, so up to 6 tracks will be displayed. For 7 and more tracks, 5 tracks will be displayed along with a line indicating the number of tracks not displayed.
 
 This view is defined in `app/views/queue.html`.
 
@@ -356,6 +374,3 @@ This view is defined in `app/views/search.html`.
 This view shows login buttons ot user information depending on the login state.
 
 This view is defined in `app/views/user.html`.
-
-
-
