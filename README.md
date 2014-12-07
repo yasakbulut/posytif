@@ -4,6 +4,9 @@ posytif is a semi-functional web-based Music Player interface using HTML5 and Ja
 
 In a nutshell, it's an AngularJS application in front of Firebase and Spotify Web API.
 
+
+
+
 # installing
 
 make sure npm is installed on your system. then:
@@ -34,6 +37,11 @@ the app will be in the `dist/` folder.
 
 that's understandable. just grab the pre-built app here, and put it on some server that can serve static files.
 
+# documentation
+
+Semi-detailed documentation lives below, in the README. However, the distribution folder contains detailed documentation generated with `docco`. To generate this documentation, run `grunt build`.
+The generated files will be inside the `dist/docs` folder. 
+
 # directory structure
 
 In the root directory, the following files are present:
@@ -41,11 +49,6 @@ In the root directory, the following files are present:
 * `package.json`: definition of the npm module of this application, and development dependencies
 * `bower.json`: declares client-side dependencies
 * `Gruntfile.js`: build file
-
-## documentation
-
-Semi-detailed documentation lives below, in the README. However, the distribution folder contains detailed documentation generated with `docco`. To generate this documentation, run `grunt build`.
-The generated files will be inside the `dist/docs` folder.
 
 ## app
 
