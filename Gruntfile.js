@@ -367,7 +367,7 @@ module.exports = function (grunt) {
     prev[curr] = {
       src: ['app/scripts/'+curr+'/**.js'],
       options:{
-        output: 'docs/'+curr+'/'
+        output: 'dist/docs/'+curr+'/'
       }
     }
     return prev;
@@ -375,7 +375,7 @@ module.exports = function (grunt) {
     app: {
       src: ['app/scripts/app.js'],
       options: {
-        output: 'docs/'
+        output: 'dist/docs/'
       }
     }
   });
