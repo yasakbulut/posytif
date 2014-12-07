@@ -41,6 +41,6 @@
 #login-providers > li.text{
   font-size: 1em;
   line-height: 2.5em;
-  margin-right: 1.5em;
+  margin-right: 2vw;
   color: rgba(0, 0, 0, .5);
 }

@@ -1,15 +1,7 @@
-/**
- * Created by yasa on 03/12/14.
- */
-'use strict';
+// Directive for tracks
 
-/**
- * @ngdoc function
- * @name posytifApp.controller:AlbumArtCtrl
- * @description
- * # AlbumArtCtrl
- * Controller of the album art module of the posytifApp
- */
+// Represents a tracks a-la-web-component style.
+'use strict';
 angular.module('posytifApp').
   directive('pstTrack', function(){
     return {

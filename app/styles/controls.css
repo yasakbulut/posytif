@@ -19,18 +19,24 @@
   margin: 10px 0;
 }
 
-.affix #controls a {
-  font-size: 1.4em;
-  height: 35px;
-  line-height: 35px;
-}
 
-.affix #controls {
-  width: 100%;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
 
-.affix #controls .position .time{
-  display: none;
+
+@media screen and (min-width: 992px) {
+
+  .affix #controls a {
+    font-size: 1.4em;
+    height: 35px;
+    line-height: 35px;
+  }
+
+  .affix #controls {
+    width: 100%;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .affix #controls .position .time{
+    display: none;
+  }
 }

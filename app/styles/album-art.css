@@ -2,8 +2,7 @@
   text-align: center;
 }
 #album-art img.art{
-  width: 256px;
-  height: 256px;
+  width: 100%;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
@@ -31,36 +30,38 @@
   margin: 0;
 }
 
-.affix #album-art img.art {
-  height: 64px;
-  width: 64px;
-  float: left;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
+@media screen and (min-width: 992px) {
 
-.affix #album-art .cover-container {
-  position: static;
-  width: 100%;
-}
+  .affix #album-art img.art {
+    width: 64px;
+    float: left;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
 
-.affix #album-art .track-info {
-  position: relative;
-  background: none;
-  color: rgba(0, 0, 0, 0.87);
-  padding: 0.4em;
-  left: 0.5em;
-}
+  .affix #album-art .cover-container {
+    position: static;
+    width: 100%;
+  }
 
-.affix #album-art {
-  text-align: left;
-}
+  .affix #album-art .track-info {
+    position: relative;
+    background: none;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 0.4em;
+    left: 0.5em;
+  }
 
-.affix #album-art .no-track{
-  display: block;
-  position: relative;
-  background: none;
-  color: rgba(0, 0, 0, 0.87);
-  padding-top: 1em;
-  left: 0.5em;
+  .affix #album-art {
+    text-align: left;
+  }
+
+  .affix #album-art .no-track{
+    display: block;
+    position: relative;
+    background: none;
+    color: rgba(0, 0, 0, 0.87);
+    padding-top: 1em;
+    left: 0.5em;
+  }
 }

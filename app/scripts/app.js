@@ -1,17 +1,13 @@
-'use strict';
+// The Posytif Application Module
 
-/**
- * @ngdoc overview
- * @name posytifApp
- * @description
- * # posytifApp
- *
- * Main module of the application.
- */
+// The module depends on `firebase` for data storage and authentication, `ngRoute` for client-side routing,
+// `ui.bootstrap` for the `tabSelect` directive and `ngAnimate` for the list add/remove animations.
+'use strict';
 angular
   .module('posytifApp', [
     'firebase', 'ngRoute', 'ui.bootstrap', 'ngAnimate'
   ]).config(function($routeProvider){
+    // Configure the route provider, mapping views to controllers.
     $routeProvider.
       when('/playlist/:playlistId', {
         templateUrl: 'views/playlist.html',

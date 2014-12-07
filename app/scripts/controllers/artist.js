@@ -26,11 +26,4 @@ angular.module('posytifApp')
       $scope.albums = albums;
     });
 
-    // Deprecated // TODO
-    //$scope.getTracksOfAlbum = function(album){
-    //  SpotifyService.getTracksOfAlbum(album.id).then(function(tracks){
-    //    $scope.tracksOfSelectedAlbum = tracks;
-    //  });
-    //};
-
   });

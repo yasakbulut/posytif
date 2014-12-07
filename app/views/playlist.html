@@ -2,7 +2,7 @@
   <h1>Not Found</h1>
   <p>The playlist you requested does not exist. Sorry.</p>
 </div>
-<div ng-if="!playlistNotFound">
+<div ng-if="!playlistNotFound" style="-webkit-transform: translateX(0); transform: translateX(0);">
   <div class="jumbotron" >
     <h1>{{playlist.name}}</h1>
     <p> {{ playlist.tracks | trackCount }} tracks, {{ playlist.tracks | totalLength | date:'mm:ss'}}</p>

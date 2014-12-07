@@ -25,7 +25,7 @@ angular.module('posytifApp')
     };
 
     // On controller initialization, check with firebase to see if the user is already logged in.
-    // This allows login state to persist across page refreshes.
+    // This allows login state to persist across page refreshes, and application revisits.
     AuthService.checkPersistentLoginState().then(function(user){
         $scope.user = user;
     });
@@ -41,8 +41,7 @@ angular.module('posytifApp')
           return;
         }
         // But, if another error occurs, alert the user.
-        alert('Authentication Failed.'); // TODO swal
-        console.error(error); //TODO remove
+        swal('Authentication Failed.');
       });
     }
 

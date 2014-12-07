@@ -1,24 +1,35 @@
+// The authorization service.
+
+// This service is a wrapper to the Firebase authorization service. All operations return promises using the `$q` service.
+// Exposes the following properties:
+// * thirdPartyLogin
+// * logout
+// * getUser
+// * checkPersistentLoginState
+// * onLoginStatus
+// * loginStatus
+// Read on for details on the exported properties.
 'use strict';
 
-/**
- * @ngdoc service
- * @name posytifApp.service:Player
- * @description
- * # Player
- * Track player for posytifApp
- */
 angular.module('posytifApp')
   .factory('AuthService', function (Firebase, $q) {
 
+    // The login status object, will be exposed to the clients.
     var loginStatus = {
       loggedIn: false,
       provider: '',
       uid: ''
     };
 
+    // Construct an instance to connect to Firebase at the application's URL.
     var rootRef = new Firebase('https://posytif-data.firebaseio.com/auth/');
 
-
+    // Log the user using the given OAuth provider. The providers supported by Firebase are:
+    // * Facebook
+    // * Twitter
+    // * Google
+    // * GitHub
+    // On successful login, the login status object is updated.
     var thirdPartyLogin = function(provider){
       var deferred = $q.defer();
 
@@ -37,53 +48,18 @@ angular.module('posytifApp')
       return deferred.promise;
     };
 
-    var passwordLogin = function (userObj){
-      var deferred = $q.defer();
-
-      rootRef.authWithPassword(userObj, function (err, user){
-        if (err) {
-          deferred.reject(err);
-        }
-        if (user) {
-          deferred.resolve(user);
-          loginStatus.loggedIn = true;
-          loginStatus.provider = 'password';
-          loginStatus.uid = user.uid;
-        }
-      });
-
-      return deferred.promise;
-    };
-
-    var createUser = function (userObj){
-      var deferred = $q.defer();
-
-      rootRef.createUser(userObj, function (err){
-        if (!err) {
-          deferred.resolve();
-        }else{
-          deferred.reject(err);
-        }
-      });
-
-      return deferred.promise;
-    };
-
-    var createUserAndLogin = function(userObj){
-      return createUser(userObj).then(function(){
-        return passwordLogin(userObj);
-      });
-    };
-
+    // Log the user out, and update the login status object.
     var logout = function(){
       rootRef.unauth();
       loginStatus.loggedIn = false;
     };
 
+    // Get the user's details. //TODO: usage?
     var getUser = function(){
       return rootRef.getAuth();
     };
 
+    // Check if the user has already logged in, and has an active session.
     var checkPersistentLoginState = function(){
       var deferred = $q.defer();
 
@@ -101,14 +77,13 @@ angular.module('posytifApp')
       return deferred.promise;
     };
 
+    // Expose the firebase authorization status change event.
     var onLoginStatus = function(callback){
       rootRef.onAuth(callback);
     };
 
     return {
       thirdPartyLogin: thirdPartyLogin,
-      passwordLogin: passwordLogin,
-      createUserAndLogin: createUserAndLogin,
       logout: logout,
       getUser: getUser,
       checkPersistentLoginState: checkPersistentLoginState,

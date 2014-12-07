@@ -19,19 +19,7 @@
 #navigation li a:hover {
   text-decoration: none;
 }
-#navigation.affix{
-  position: fixed;
-  left: 15px;
-  top: 15px;
-  bottom: 15px;
-  float: none;
-  width: 25%;
-  padding-right: 30px;
-}
-#navigation.affix > div,
-#navigation.affix .panel{
-  height: 100%;
-}
+
 #navigation .playlist.ng-enter{
   -webkit-transition:all ease-out 500ms;
   transition:all ease-out 500ms;
@@ -42,20 +30,9 @@
   opacity: 1;
   max-height: none;
 }
-#navigation.affix .panel-body {
-  height: 100%;
-  margin-top: -46px;
-  padding-top: 46px;
-  position: relative;
-}
+
 #navigation .panel-body ul {
   max-height: 68vh;
-  overflow-y: auto;
-  overflow-x: visible;
-}
-#navigation.affix .panel-body ul {
-  height: 92%;
-  max-height: none;
   overflow-y: auto;
   overflow-x: visible;
 }
@@ -78,3 +55,49 @@
   border: 2px solid #555555;
 }
 
+.highlight-on-change{
+  animation-duration: 1s;
+  animation-name: highlight;
+}
+
+@keyframes highlight {
+  from {
+    background-color: #1DE9B6;
+  }
+
+  to {
+    background-color: transparent;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+
+  #navigation.affix{
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    bottom: 15px;
+    float: none;
+    width: 25%;
+    padding-right: 30px;
+  }
+  #navigation.affix > div,
+  #navigation.affix .panel{
+    height: 100%;
+  }
+  #navigation.affix .panel-body {
+    height: 100%;
+    margin-top: -46px;
+    padding-top: 46px;
+    position: relative;
+  }
+
+  #navigation.affix .panel-body ul {
+    height: 92%;
+    max-height: none;
+    overflow-y: auto;
+    overflow-x: visible;
+  }
+
+}
