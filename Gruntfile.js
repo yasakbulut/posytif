@@ -11,7 +11,8 @@ module.exports = function (grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
-  grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-docco');
+
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -23,7 +24,7 @@ module.exports = function (grunt) {
   };
 
   // Define the configuration for all the tasks
-  grunt.initConfig({
+  var initConfig = {
 
     // Project settings
     yeoman: appConfig,
@@ -40,10 +41,6 @@ module.exports = function (grunt) {
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
-      },
-      docs:{
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['exec:generate_docs']
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
@@ -357,10 +354,6 @@ module.exports = function (grunt) {
       ]
     },
 
-    exec:{
-      generate_docs: "find app/ -name '*.js' -exec docco -l linear {} +"
-    },
-
     // Test settings
     karma: {
       unit: {
@@ -368,7 +361,27 @@ module.exports = function (grunt) {
         singleRun: true
       }
     }
+  };
+  var doccoDirs = ['constants', 'controllers', 'directives', 'filters', 'services'];
+  var doccoConfig = doccoDirs.reduce(function(prev, curr){
+    prev[curr] = {
+      src: ['app/scripts/'+curr+'/**.js'],
+      options:{
+        output: 'docs/'+curr+'/'
+      }
+    }
+    return prev;
+  }, {
+    app: {
+      src: ['app/scripts/app.js'],
+      options: {
+        output: 'docs/'
+      }
+    }
   });
+  initConfig.docco = doccoConfig;
+
+  grunt.initConfig(initConfig);
 
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
@@ -378,7 +391,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'exec:generate_docs',
+      'docco',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -402,6 +415,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'docco',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
@@ -423,5 +437,5 @@ module.exports = function (grunt) {
     'build'
   ]);
 
-  grunt.registerTask('docs',['exec:generate_docs']);
+  grunt.registerTask('docs',['docco']);
 };
